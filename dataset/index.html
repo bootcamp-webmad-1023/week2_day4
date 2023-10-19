@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <p data-doggyname="Popino">Soy un párrafo, y a la vez mi propio <em>currentTarget</em></p>
+    <p data-doggyname="Lassie">Soy un párrafo, y a la vez mi propio <em>currentTarget</em></p>
+    <p data-doggyname="Scooby">Soy un párrafo, y a la vez mi propio <em>currentTarget</em></p>
+
+
+    <script>
+
+
+        // // Alternativa 1: cada elemento iterado
+        // document.querySelectorAll('p').forEach(eachParagraph => {
+        //     eachParagraph.onclick = function () {
+        //         const dog = eachParagraph.dataset.doggyname
+        //         alert(`Este párrafo tiene un perro llamado ${dog}`)
+
+        //     }
+        // })
+
+
+        // // Alternativa 2: this
+        // document.querySelectorAll('p').forEach(eachParagraph => {
+        //     eachParagraph.onclick = function () {
+        //         const dog = this.dataset.doggyname
+        //         alert(`Este párrafo tiene un perro llamado ${dog}`)
+        //     }
+        // })
+
+
+        // Alternativa 3: currentTarget
+        document.querySelectorAll('p').forEach(eachParagraph => {
+            eachParagraph.onclick = function (event) {
+                const dog = event.currentTarget.dataset.doggyname
+                alert(`Este párrafo tiene un perro llamado ${dog}`)
+            }
+        })
+
+
+    </script>
+</body>
+
+</html>
